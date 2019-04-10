@@ -1,0 +1,13 @@
+<div class="container character-list">
+
+    <div class="row">
+    {% for character in characters %}
+
+        <div class="col-4">
+            {% include 'partials/character-profile.twig' %}
+        </div>
+
+    {% endfor %}
+    </div>
+
+</div>

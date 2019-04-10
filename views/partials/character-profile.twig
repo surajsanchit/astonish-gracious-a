@@ -1,0 +1,21 @@
+<div class="card character-profile">
+    <div class="card-body">
+
+        <img class="card-image-top" src="{{ character.image }}" alt="{{ character.name }}-image" />
+        <h5 class="card-header">{{ character.name }}</h5>
+        
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-4">{{ character.status }}</div>
+                    <div class="col-4">{{ character.species }}</div>
+                    <div class="col-4">{{ character.gender }}</div>
+                </div>
+            </li>
+            
+            <li class="list-group-item">Location: {{ character.location.name }}</ul>
+            <li class="list-group-item">Origin: {{ character.origin.name }}</ul>
+        </ul>
+
+    </div>
+</div>
