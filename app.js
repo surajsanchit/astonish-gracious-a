@@ -19,6 +19,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('*/images', express.static(path.join(__dirname, 'public/images')));
+app.use('*/javascript', express.static(path.join(__dirname, 'public/javascript')));
+app.use('*/stylesheets', express.static(path.join(__dirname, 'public/stylesheets')));
 
 app.use('/', indexRouter);
 app.use('/characters', characterRouter);
