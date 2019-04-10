@@ -1,0 +1,19 @@
+<div class="character">
+
+    <div class="character-portrait">
+        <img src="{{ character.image }}" alt="{{ character.name }}-image"/>
+    </div>
+
+    <div class="character-info">
+        {{ character.name }}
+        {{ character.status }}
+        {{ character.species }}
+        {{ character.gender }}
+    </div>
+
+    <div class="character-location">
+        {{ character.origin.name }}
+        {{ character.location.name }}
+    </div>
+
+</div>
