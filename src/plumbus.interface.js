@@ -1,22 +1,40 @@
 var rmApi = require('rickmortyapi');
 
 /**
- * @param {string} dimension 
+ * @param {string} dimension
+ * @returns {array}
  */
-async function listCharactersInDimension(dimension) {
+async function listCharactersByDimension(dimension) {
   let locations = await listAll(rmApi.getLocation, { dimension });
   
-  let characterIds = [];
+  let characters = [];
   for (let location of locations) {
-    for (let resident of location.residents) {
-      characterIds.push(getIdFromUrl(resident));
-    }
+    let charactersAtLocation = await listCharactersAtLocation(location.name);
+    characters = characters.concat(charactersAtLocation);
+  }
+
+  return characters;
+};
+
+/**
+ * @param {string} name
+ * @returns {array}
+ */
+async function listCharactersByLocation(name) {
+  console.log(name);
+  let location = await rmApi.getLocation({ name });
+  
+  if (location.status == 404) return [];
+
+  let characterIds = [];
+  for (let resident of location.results[0].residents) {
+    characterIds.push(getIdFromUrl(resident));
   }
 
   let characters = await rmApi.getCharacter(characterIds);
 
   return characters;
-};
+}
 
 /**
  * Get all results from all pages.
@@ -52,5 +70,6 @@ function getIdFromUrl(url) {
 
 /** Module Interface **/
 module.exports = {
-  listCharactersInDimension
+  listCharactersByDimension,
+  listCharactersByLocation
 };
