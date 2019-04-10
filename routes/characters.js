@@ -3,8 +3,12 @@ var plumbus = require('../src/plumbus.interface');
 
 var router = express.Router();
 
+router.get('/', (req, res) => {
+  res.render('pages/characters', {});
+});
+
 /* GET characters by dimension. */
-router.get('/characters/dimension/:dimension', async (req, res) => {
+router.get('/dimension/:dimension', async (req, res) => {
   let data = {
     title: `Characters in ${req.params.dimension}`,
     characters: await plumbus.listCharactersByDimension(req.params.dimension)
@@ -14,7 +18,7 @@ router.get('/characters/dimension/:dimension', async (req, res) => {
 });
 
 /* GET characters by location */
-router.get('/characters/location/:location', async (req, res) => {
+router.get('/location/:location', async (req, res) => {
   let data = {
     title: `Characters at ${req.params.location}`,
     characters: await plumbus.listCharactersByLocation(req.params.location)
@@ -24,7 +28,7 @@ router.get('/characters/location/:location', async (req, res) => {
 });
 
 /* GET characters by episode */
-router.get('/characters/episode/:episode', async (req, res) => {
+router.get('/episode/:episode', async (req, res) => {
   let data = {
     title: `Characters in episode ${req.params.episode}`,
     characters: await plumbus.listCharactersByEpisode(req.params.episode)
