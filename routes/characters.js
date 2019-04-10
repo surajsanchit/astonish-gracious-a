@@ -10,7 +10,9 @@ router.get('/', (req, res) => {
 /* GET characters by dimension. */
 router.get('/dimension/:dimension', async (req, res) => {
   let data = {
-    title: `Characters in ${req.params.dimension}`,
+    page: 'dimension',
+    filter_page: true,
+    title: req.params.dimension,
     characters: await plumbus.listCharactersByDimension(req.params.dimension)
   };
 
@@ -20,7 +22,9 @@ router.get('/dimension/:dimension', async (req, res) => {
 /* GET characters by location */
 router.get('/location/:location', async (req, res) => {
   let data = {
-    title: `Characters at ${req.params.location}`,
+    page: 'location',
+    filter_page: true,
+    title: req.params.location,
     characters: await plumbus.listCharactersByLocation(req.params.location)
   };
   
@@ -30,7 +34,9 @@ router.get('/location/:location', async (req, res) => {
 /* GET characters by episode */
 router.get('/episode/:episode', async (req, res) => {
   let data = {
-    title: `Characters in episode ${req.params.episode}`,
+    page: 'episode',
+    filter_page: true,
+    title: req.params.episode,
     characters: await plumbus.listCharactersByEpisode(req.params.episode)
   };
 

@@ -37,6 +37,8 @@ async function listCharactersByLocation(name) {
 async function listCharactersByEpisode(episode) {
   let ep = await rmApi.getEpisode({ episode });
 
+  if (ep.status === 404) return [];
+
   let characterIds = getIdsFromUrlList(ep.results[0].characters);
 
   return await rmApi.getCharacter(characterIds);

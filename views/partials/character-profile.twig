@@ -7,14 +7,12 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <div class="row">
-                    <div class="col-4">{{ character.status }}</div>
-                    <div class="col-4">{{ character.species }}</div>
-                    <div class="col-4">{{ character.gender }}</div>
+                    <div class="col-6">{{ character.species }}</div>
+                    <div class="col-6">{{ character.gender }}</div>
                 </div>
             </li>
             
-            <li class="list-group-item">Location: {{ character.location.name }}</ul>
-            <li class="list-group-item">Origin: {{ character.origin.name }}</ul>
+            <li class="list-group-item">{{ character.location.name }} | {{ character.status }}</li>
         </ul>
 
     </div>
