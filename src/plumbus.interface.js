@@ -9,7 +9,7 @@ async function listCharactersByDimension(dimension) {
   
   let characters = [];
   for (let location of locations) {
-    let charactersAtLocation = await listCharactersAtLocation(location.name);
+    let charactersAtLocation = await listCharactersByLocation(location.name);
     characters = characters.concat(charactersAtLocation);
   }
 
