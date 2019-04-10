@@ -2,7 +2,7 @@ var rmApi = require('rickmortyapi');
 
 /**
  * @param {string} dimension
- * @returns {array}
+ * @returns {Promise<Array>}
  */
 async function listCharactersByDimension(dimension) {
   let locations = await listAll(rmApi.getLocation, { dimension });
@@ -14,26 +14,32 @@ async function listCharactersByDimension(dimension) {
   }
 
   return characters;
-};
+}
 
 /**
  * @param {string} name
- * @returns {array}
+ * @returns {Promise<Array>}
  */
 async function listCharactersByLocation(name) {
-  console.log(name);
   let location = await rmApi.getLocation({ name });
   
-  if (location.status == 404) return [];
+  if (location.status === 404) return [];
 
-  let characterIds = [];
-  for (let resident of location.results[0].residents) {
-    characterIds.push(getIdFromUrl(resident));
-  }
+  let characterIds = getIdsFromUrlList(location.results[0].residents);
 
-  let characters = await rmApi.getCharacter(characterIds);
+  return await rmApi.getCharacter(characterIds);
+}
 
-  return characters;
+/**
+ * @param {string} episode
+ * @return {Promise<Array>}
+ */
+async function listCharactersByEpisode(episode) {
+  let ep = await rmApi.getEpisode({ episode });
+
+  let characterIds = getIdsFromUrlList(ep.results[0].characters);
+
+  return await rmApi.getCharacter(characterIds);
 }
 
 /**
@@ -41,7 +47,7 @@ async function listCharactersByLocation(name) {
  * 
  * @param {function} endpoint
  * @param {*} filters
- * @returns {array}
+ * @returns {Promise<Array>}
  */
 async function listAll(endpoint, filters) {
   let firstCall = await endpoint(filters);
@@ -62,14 +68,22 @@ async function listAll(endpoint, filters) {
 }
 
 /**
- * @param {string} url 
+ * @param {array} list
  */
-function getIdFromUrl(url) {
-  return  url.substring(url.lastIndexOf('/') + 1);
+function getIdsFromUrlList(list) {
+  let Ids = [];
+
+  for (let item of list) {
+    let id = item.substring(item.lastIndexOf('/') + 1);
+    Ids.push(id);
+  }
+
+  return Ids;
 }
 
 /** Module Interface **/
 module.exports = {
   listCharactersByDimension,
-  listCharactersByLocation
+  listCharactersByLocation,
+  listCharactersByEpisode
 };
