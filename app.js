@@ -26,7 +26,7 @@ app.use(cookieParser());
 // set host paths for static content
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('*/images', express.static(path.join(__dirname, 'public/images')));
-app.use('*/javascript', express.static(path.join(__dirname, 'public/javascript')));
+app.use('*/javascripts', express.static(path.join(__dirname, 'public/javascripts')));
 app.use('*/stylesheets', express.static(path.join(__dirname, 'public/stylesheets')));
 
 // register routes
