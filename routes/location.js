@@ -12,7 +12,7 @@ const pageData = {
 router.get('/', async (req, res) => {
   let data = {
     page: pageData,
-    list: await location.list()
+    list: await location.list(null)
   };
 
   res.render('pages/location.twig', data);

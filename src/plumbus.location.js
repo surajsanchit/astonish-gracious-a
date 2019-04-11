@@ -33,6 +33,7 @@ async function characters(locationId) {
   return await rmApi.getCharacter(characterIds);
 }
 
+/** ----- */
 module.exports = {
   list,
   characters
