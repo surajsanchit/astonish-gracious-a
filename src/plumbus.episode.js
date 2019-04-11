@@ -30,6 +30,8 @@ async function characters(episodeId) {
 
   let characterIds = utils.getIdsFromUrlList(episode.characters);
 
+  if (characterIds.length === 0) return [];
+
   return await rmApi.getCharacter(characterIds);
 }
 

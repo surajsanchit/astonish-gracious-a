@@ -36,6 +36,8 @@ async function characters(dimension) {
 		characterIds = characterIds.concat(utils.getIdsFromUrlList(location.residents));
 	}
 
+	if (characterIds.length === 0) return [];
+
 	return await rmApi.getCharacter(characterIds);
 }
 

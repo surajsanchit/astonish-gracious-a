@@ -20,13 +20,11 @@ router.get('/', async (req, res) => {
 
 router.get('/:id/characters', async (req, res) => {
   let data = {
-    pageData,
+    page: pageData,
     list: await dimension.list(req.params.id),
     characters: await dimension.characters(req.params.id)
   };
-
-  console.log(data);
-
+  
   res.render('pages/dimension.twig', data);
 });
 

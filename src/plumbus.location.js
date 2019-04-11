@@ -30,6 +30,8 @@ async function characters(locationId) {
 
   let characterIds = utils.getIdsFromUrlList(location.residents);
 
+  if (characterIds.length === 0) return [];
+
   return await rmApi.getCharacter(characterIds);
 }
 
