@@ -5,7 +5,7 @@ var createError = require('http-errors'),
     logger = require('morgan');
 
 var indexRouter = require('./routes/index'),
-    episodeRouter = require('./routes/episodes');
+    episodeRouter = require('./routes/episode');
 
 var app = express();
 
@@ -27,7 +27,7 @@ app.use('*/stylesheets', express.static(path.join(__dirname, 'public/stylesheets
 
 // register routes
 app.use('/', indexRouter);
-app.use('/episodes', episodeRouter);
+app.use('/episode', episodeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
