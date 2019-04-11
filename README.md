@@ -2,7 +2,8 @@
 ### a hackathonny code-test
 ---
 
-## How to run:
+# Run the App
+## Node:
 - clone this project to $basically_anywhere
 - cd into $basically_anywhere
 - run command `npm i`
@@ -11,8 +12,21 @@
 - ???
 - profit.
 ---
+## Docker:
+### locally
+- switch to the 'dockerize' branch
+- run `docker build -t astonish-gracious .`
+- run `docker run -p 3000:3000 astonish-gracious`
+- point your browser to `localhost:3000`
+### from docker
+- run `docker run cjehmke/astonish-gracious`
+- point your browser to `localhost:3000`
+---
 
 ## Some A's for your Q's:
+*Q: Why is there a dockerize branch? You have it on the docker repo..*\
+Because I have never used docker and am not hundy on the conventions on having the Dockerfile in github ¯\_(ツ)_/¯
+
 *Q: What's with the god-awful colour scheme*\
 A: I am not a designer :D, but I did put some thought into this (https://www.color-hex.com/color-palette/9)
 
