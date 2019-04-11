@@ -2,7 +2,29 @@
 
 {% block body %}
 
-  <h1>{{ title }}</h1>
-  <p>Welcome to {{ title }}</p>
+  <div class="row">
+    <h1 class="section-title"> Rick and Morty character lister </h1>
+  </div>
+  <div class="row">
+    <h3 class="section-title"> To begin select an option to list by </h5>
+  </div>
+
+  <div class="row button-container">
+    <div class="col-4">
+
+      <a class="button" href="/dimension"> DIMENSION </a>
+
+    </div>
+    <div class="col-4">
+
+      <a class="button" href="/location"> LOCATION </a>
+
+    </div>
+    <div class="col-4">
+
+      <a class="button" href="/episode"> EPISODE </a>
+
+    </div>
+  </div>
 
 {% endblock %}

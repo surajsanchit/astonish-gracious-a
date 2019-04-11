@@ -1,11 +1,16 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express'),
+    router = express.Router();
+
+var pageData = {
+  title: '',
+  filter: false
+}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  let data = {};
-
-  data.title = "WELCOME"
+  let data = {
+    page: pageData
+  };
 
   res.render('index', data);
 });
