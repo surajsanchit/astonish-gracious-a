@@ -74,6 +74,6 @@ be obvious by the surroundings. Hopefully many things just slot in instead of ne
 
 `const thing = new Plumbus();` among other ways...
 
-### Anything else?
+#### Anything else?
 
 Ask away, would love to discuss!
