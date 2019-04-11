@@ -1,6 +1,10 @@
 <div class="container character-list">
 
     <div class="row">
+    {% if characters is empty %}
+        <h2 class="no-characters-message"> No characters to display. Select {{ page.title }} </h2>
+    {% endif %}
+    
     {% for character in characters %}
 
         <div class="col-4">

@@ -25,3 +25,7 @@ a {
 .character-profile {
   margin: 10px 0px;
 }
+
+.no-characters-message {
+  margin: auto;
+}
