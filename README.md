@@ -5,6 +5,7 @@
 ## How to run:
 - clone this project to $basically_anywhere
 - cd into $basically_anywhere
+- run command `npm i`
 - run the command `npm run-script start`
 - point your browser to `locahost:3000`
 - ???
