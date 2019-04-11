@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 });
 
 /* GET characters on episode */
-router.get('/:id', async (req, res) => {
+router.get('/:id/characters', async (req, res) => {
   let data = {
     page: pageData,
     current: '*placeholder*',

@@ -24,7 +24,36 @@ async function listAll(endpoint, filters) {
 }
 
 /**
- * @param {array} list
+ * Recieves and array and formats it to use in dropdowns.
+ * 
+ * @param  {Array<Object>} items
+ * @param  {string} currentId
+ * @return {Object}
+ */
+function buildDropdownList(items, currentId) {
+  let list = {
+    current: null,
+    items: []
+  };
+
+  for (let item of items) {
+    if (currentId == item.id) {
+      list.current = item.name
+    }
+
+    list.items.push({
+      id: item.id,
+      value: item.name
+    });
+  }
+
+  return list;
+}
+
+/**
+ * Pull Ids from lists of urls to RickMortyApi
+ * 
+ * @param {Array<number>} list
  */
 function getIdsFromUrlList(list) {
   let Ids = [];
@@ -39,5 +68,6 @@ function getIdsFromUrlList(list) {
 
 module.exports = {
   listAll,
+  buildDropdownList,
   getIdsFromUrlList
 }

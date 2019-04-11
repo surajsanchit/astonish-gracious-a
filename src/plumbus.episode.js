@@ -7,16 +7,7 @@ var rmApi = require('rickmortyapi'),
 async function list() {
   let results = await utils.listAll(rmApi.getEpisode, {});
 
-  let episodes = [];
-  for (let result of results) {
-    episodes.push({
-      id: result.id,
-      episode: result.episode, 
-      name: result.name 
-    });
-  }
-
-  return episodes;
+  return utils.buildDropdownList(results);
 }
 
 /**
