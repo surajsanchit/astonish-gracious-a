@@ -1,17 +1,21 @@
 <div class="container character-list">
 
     <div class="row">
-    {% if characters is empty %}
-        <h2 class="no-characters-message"> No characters to display. Select {{ page.title }} </h2>
-    {% endif %}
+        {% if characters is empty %}
+            <h2 class="section-title"> No characters to display. Select {{ page.title }} </h2>
+        {% else %}
+            <h2 class="section-title"> Characters in {{ list.current }} </h2>
+        {% endif %}
+    </div>
     
-    {% for character in characters %}
+    <div class="row">
+        {% for character in characters %}
 
-        <div class="col-4">
-            {% include 'partials/character-profile.twig' %}
-        </div>
+            <div class="col-4">
+                {% include 'partials/character-profile.twig' %}
+            </div>
 
-    {% endfor %}
+        {% endfor %}
     </div>
 
 </div>
