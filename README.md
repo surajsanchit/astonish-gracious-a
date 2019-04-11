@@ -63,6 +63,14 @@ then referrring back to said object with other calls. In this instance the downs
 making sure it does not become outdated. Such a cache could be per-run with this smaller dataset, meaning it would only
 be outdated if the source data gets updated during the user session.
 
+#### In relation to pagination of results
+
+There are 2 ways in which the results can be paginated. The API pagination doesn't really do a good job of paginating the results in the way we want. 
+Personally if I were to paginate these results I'd do so through the front-end, passing throught the full list and then limiting what the user sees. Possibly through use of some jQuery library.
+
+However, personally I dislike pagination on non-dense datasets. When presented with dense data such as accounts and transaction records pagination helps by reducing the strain of looking at too many rows of data at once.
+When presented with simple records like the character cards presented I prefer to just have infinite scroll mode.
+
 #### In relation to the structure used
 
 This would be slightly simpler with a more monolithic structre, I did indeed do something like that as a quick out-the-door.\
