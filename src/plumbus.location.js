@@ -2,13 +2,13 @@ var rmApi = require('rickmortyapi'),
     utils = require('./plumbus.utils');
 
 /**
- * @param  {string} current
- * @return {Promise<Array>}
+ * @param  {string} currentLocationId
+ * @return {Promise<Object>}
  */
-async function list(currentId) {
+async function list(currentLocationId) {
   let results = await utils.listAll(rmApi.getLocation, {});
 
-  return utils.buildDropdownList(results, currentId);
+  return utils.buildDropdownList(results, currentLocationId);
 }
 
 /**
@@ -33,7 +33,8 @@ async function characters(locationId) {
   return await rmApi.getCharacter(characterIds);
 }
 
+/** ----- */
 module.exports = {
   list,
   characters
-}
+};

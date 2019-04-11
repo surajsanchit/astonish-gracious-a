@@ -37,7 +37,7 @@ function buildDropdownList(items, currentId) {
   };
 
   for (let item of items) {
-    if (currentId == item.id) {
+    if (item.id == currentId) {
       list.current = item.name
     }
 

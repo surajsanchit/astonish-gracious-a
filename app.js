@@ -4,8 +4,11 @@ var createError = require('http-errors'),
     cookieParser = require('cookie-parser'),
     logger = require('morgan');
 
+// set routers
 var indexRouter = require('./routes/index'),
-    episodeRouter = require('./routes/episode');
+    episodeRouter = require('./routes/episode'),
+    locationRouter = require('./routes/location'),
+    dimensionRouter = require('./routes/dimension');
 
 var app = express();
 
@@ -28,6 +31,8 @@ app.use('*/stylesheets', express.static(path.join(__dirname, 'public/stylesheets
 // register routes
 app.use('/', indexRouter);
 app.use('/episode', episodeRouter);
+app.use('/location', locationRouter);
+app.use('/dimension', dimensionRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
