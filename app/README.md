@@ -2,7 +2,8 @@
 ### a hackathonny code-test
 ---
 
-## How to run:
+# Run the App
+## Node:
 - clone this project to $basically_anywhere
 - cd into $basically_anywhere
 - run command `npm i`
@@ -11,8 +12,21 @@
 - ???
 - profit.
 ---
+## Docker:
+### locally
+- switch to the 'dockerize' branch
+- run `docker build -t astonish-gracious .`
+- run `docker run -p 3000:3000 astonish-gracious`
+- point your browser to `localhost:3000`
+### from docker
+- run `docker run cjehmke/astonish-gracious`
+- point your browser to `localhost:3000`
+---
 
 ## Some A's for your Q's:
+*Q: Why is there a dockerize branch? You have it on the docker repo..*\
+Because I have never used docker and am not hundy on the conventions on having the Dockerfile in github ¯\_(ツ)_/¯
+
 *Q: What's with the god-awful colour scheme*\
 A: I am not a designer :D, but I did put some thought into this (https://www.color-hex.com/color-palette/9)
 
@@ -49,6 +63,14 @@ then referrring back to said object with other calls. In this instance the downs
 making sure it does not become outdated. Such a cache could be per-run with this smaller dataset, meaning it would only
 be outdated if the source data gets updated during the user session.
 
+#### In relation to pagination of results
+
+There are 2 ways in which the results can be paginated. The API pagination doesn't really do a good job of paginating the results in the way we want. 
+Personally if I were to paginate these results I'd do so through the front-end, passing throught the full list and then limiting what the user sees. Possibly through use of some jQuery library.
+
+However, personally I dislike pagination on non-dense datasets. When presented with dense data such as accounts and transaction records pagination helps by reducing the strain of looking at too many rows of data at once.
+When presented with simple records like the character cards presented I prefer to just have infinite scroll mode.
+
 #### In relation to the structure used
 
 This would be slightly simpler with a more monolithic structre, I did indeed do something like that as a quick out-the-door.\
@@ -59,3 +81,7 @@ be obvious by the surroundings. Hopefully many things just slot in instead of ne
 #### How is a plumbus made
 
 `const thing = new Plumbus();` among other ways...
+
+#### Anything else?
+
+Ask away, would love to discuss!
